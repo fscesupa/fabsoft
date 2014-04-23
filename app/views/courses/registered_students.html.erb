@@ -1,0 +1,31 @@
+<div class="page-header">
+  <h1>Listing Registered Students</h1>
+</div>
+
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <h3 class="panel-title">Members</h3>
+  </div>
+  <div class="panel-body">
+    <table class="table table-hover">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Email</th>
+          <th>Type</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <% @students.each do |student| %>
+          <tr>
+            <td><%= student.name %></td>
+            <td><%= student.email %></td>
+            <td><%= student.type %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div> <!-- End Panel -->
+</div>
+<br>

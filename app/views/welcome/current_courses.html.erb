@@ -1,0 +1,33 @@
+<div class="page-header">
+    <h1>Listing courses</h1>
+  </div>
+<div class="container marketing">
+  <div class="row">
+    <% @courses.each do |course| %>
+      <a href="<%= see_more_path(course) %>" class="mudaTexto mudaCorIcones">
+        <div class="col-xs-4 text-center">
+          <div class="panel panel-default">
+            <div class="panel-body">
+              <h2><span class="mudaTexto"><%= course.name %></span></h2>
+              <%= image_tag course.image_url(:thumb).to_s, :size => '200x200' %>
+              <h4><i class="glyphicon glyphicon-time"></i> <%= course.workload %> horas </h4>
+              <% if current_user.present? && current_user.role?('estudante') %> 
+                <%= link_to "Inscrever-se", register_courses_path(:id => course.id),:method => :put, :role => "button", :class => "btn btn-success btn-md btn-block" %>
+              <% end %>
+            </div>
+          </div>
+        </div>
+      </a>
+    <% end %>
+  </div> <!-- row -->
+</div> <!-- marketing -->
+
+
+
+<!-- Parte da POG que não é visivel
+  <% if false %>
+  <%= link_to 'Show', course, :class => "btn btn-primary", :role => "button" %>
+  <%= link_to 'Edit', edit_course_path(course), :class => "btn btn-primary", :role => "button" %>
+  <%= link_to 'Destroy', course, :class => "btn btn-primary", :role => "button", method: :delete, data: { confirm: 'Are you sure?' } %>
+  <% end %>
+-->

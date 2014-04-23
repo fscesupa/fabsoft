@@ -1,0 +1,81 @@
+<div class="container">
+  <div class="row">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h3 class="panel-title">Course</h3>
+      </div>
+      <br>
+        <div class="panel-body">
+          <%= simple_form_for @course, :html => { :class => 'form-horizontal' }  do |f| %>
+          <%= f.error_notification %>
+
+          <div class="form-inputs">
+
+            <div class="form-group">
+              <div class="col-xs-4">
+                <%= f.input :name %>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <div class="col-xs-4">
+                <%= f.input :workload %>
+              </div>
+            </div>
+            <div class="form-group">
+              <div class="col-xs-12">
+                <%= f.input :specification %>
+              </div>
+            </div>
+            <div class="form-group">
+              <div class="col-xs-4">
+                <%= f.input :start_date, :as => :string, :input_html => { data: {behaviour: "datepicker"}} %>
+              </div>
+            </div>
+            <div class="form-group">
+              <div class="col-xs-4">
+                <%= f.input :end_date, :as => :string, :input_html => { data: {behaviour: "datepicker"}} %>
+              </div>
+            </div>
+            <div class="form-group">
+              <div class="col-xs-4">
+                <%= f.input :maximum_capacity %>
+              </div>
+            </div>
+            <div class="form-group">
+              <div class="col-xs-4">
+                <%= f.input :minimum_capacity %>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <div class="col-xs-4">
+                <%= f.input :image %>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <div class="col-xs-3">
+                <%= f.association :users, collection: @members, as: :check_boxes %>
+              </div>
+            </div>            
+            
+          </div>
+
+          <div class="well">
+            <%= f.button :submit, class: "btn btn-primary" %>
+            <%= link_to 'Back', courses_path, class: "btn btn-default" %>
+          </div>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script type="text/javascript">
+    $('[data-behaviour~=datepicker]').datepicker({
+      "format": "yyyy-mm-dd",
+      "weekStart": 1,
+      "autoclose": true
+    });
+  </script>
