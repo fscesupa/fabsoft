@@ -56315,3 +56315,419 @@ Started GET "/assets/facebook.png" for 127.0.0.1 at 2014-04-24 10:59:20 -0300
 
 
 Started GET "/assets/twitter/glyphicons-halflings-regular.woff" for 127.0.0.1 at 2014-04-24 10:59:20 -0300
+  [1m[36m (157.7ms)[0m  [1mCREATE TABLE `schema_migrations` (`version` varchar(255) NOT NULL) ENGINE=InnoDB[0m
+  [1m[35m (212.3ms)[0m  CREATE UNIQUE INDEX `unique_schema_migrations` ON `schema_migrations` (`version`) 
+  [1m[36mActiveRecord::SchemaMigration Load (17.3ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+Migrating to CreateAbouts (20140130174647)
+  [1m[35m (172.4ms)[0m  CREATE TABLE `abouts` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `title` varchar(255), `content` text, `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (14.9ms)[0m  INSERT INTO `schema_migrations` (`version`) VALUES ('20140130174647')
+  [1m[36m (28.5ms)[0m  [1mCOMMIT[0m
+Migrating to DeviseCreateUsers (20140130213546)
+  [1m[35m (90.6ms)[0m  CREATE TABLE `users` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `login` varchar(255) DEFAULT '' NOT NULL, `email` varchar(255) DEFAULT '' NOT NULL, `encrypted_password` varchar(255) DEFAULT '' NOT NULL, `sign_in_count` int(11) DEFAULT 0 NOT NULL, `current_sign_in_at` datetime, `last_sign_in_at` datetime, `current_sign_in_ip` varchar(255), `last_sign_in_ip` varchar(255), `name` varchar(255), `type` varchar(255), `phone` varchar(255), `cellphone` varchar(255), `facebook` varchar(255), `rg` varchar(255), `cpf` varchar(255), `entry_date` datetime, `address` varchar(255), `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB
+  [1m[36m (142.0ms)[0m  [1mCREATE UNIQUE INDEX `index_users_on_login` ON `users` (`login`) [0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO `schema_migrations` (`version`) VALUES ('20140130213546')[0m
+  [1m[35m (32.1ms)[0m  COMMIT
+Migrating to CreateRoles (20140130234827)
+  [1m[36m (223.6ms)[0m  [1mCREATE TABLE `roles` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `name` varchar(255), `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO `schema_migrations` (`version`) VALUES ('20140130234827')[0m
+  [1m[35m (40.4ms)[0m  COMMIT
+Migrating to UsersHaveBelongToManyRoles (20140130235005)
+  [1m[36m (87.7ms)[0m  [1mCREATE TABLE `roles_users` (`role_id` int(11), `user_id` int(11)) ENGINE=InnoDB[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO `schema_migrations` (`version`) VALUES ('20140130235005')[0m
+  [1m[35m (48.8ms)[0m  COMMIT
+Migrating to CreatePartners (20140131003207)
+  [1m[36m (82.8ms)[0m  [1mCREATE TABLE `partners` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `name` varchar(255), `description` text, `url` varchar(255), `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO `schema_migrations` (`version`) VALUES ('20140131003207')[0m
+  [1m[35m (40.3ms)[0m  COMMIT
+Migrating to AddColumnsTwitterToMembers (20140131041748)
+  [1m[36m (200.4ms)[0m  [1mALTER TABLE `users` ADD `twitter` varchar(255)[0m
+  [1m[35m (427.5ms)[0m  ALTER TABLE `users` ADD `github` varchar(255)
+  [1m[36m (184.3ms)[0m  [1mALTER TABLE `users` ADD `gplus` varchar(255)[0m
+  [1m[35m (217.8ms)[0m  ALTER TABLE `users` ADD `linkedin` varchar(255)
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `schema_migrations` (`version`) VALUES ('20140131041748')
+  [1m[36m (40.4ms)[0m  [1mCOMMIT[0m
+Migrating to CreateProjects (20140201145644)
+  [1m[35m (91.2ms)[0m  CREATE TABLE `projects` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `name` varchar(255), `description` text, `image` varchar(255), `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `schema_migrations` (`version`) VALUES ('20140201145644')
+  [1m[36m (40.4ms)[0m  [1mCOMMIT[0m
+Migrating to AddColumnToProjects (20140201150255)
+  [1m[35m (200.5ms)[0m  ALTER TABLE `projects` ADD `url` varchar(255)
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `schema_migrations` (`version`) VALUES ('20140201150255')
+  [1m[36m (32.1ms)[0m  [1mCOMMIT[0m
+Migrating to AddColumnImageToUser (20140202174752)
+  [1m[35m (175.6ms)[0m  ALTER TABLE `users` ADD `image` varchar(255)
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `schema_migrations` (`version`) VALUES ('20140202174752')
+  [1m[36m (33.2ms)[0m  [1mCOMMIT[0m
+Migrating to AddColumnImageToPartners (20140202222249)
+  [1m[35m (183.9ms)[0m  ALTER TABLE `partners` ADD `image` varchar(255)
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `schema_migrations` (`version`) VALUES ('20140202222249')
+  [1m[36m (32.0ms)[0m  [1mCOMMIT[0m
+Migrating to CreateCourses (20140204135638)
+  [1m[35m (82.6ms)[0m  CREATE TABLE `courses` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `name` varchar(255), `workload` varchar(255), `specification` text, `start_date` date, `end_date` date, `maximum_capacity` int(11), `minimum_capacity` int(11), `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `schema_migrations` (`version`) VALUES ('20140204135638')
+  [1m[36m (40.4ms)[0m  [1mCOMMIT[0m
+Migrating to UsersHaveBelongToManyCourses (20140205124651)
+  [1m[35m (78.7ms)[0m  CREATE TABLE `courses_users` (`course_id` int(11), `user_id` int(11)) ENGINE=InnoDB
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `schema_migrations` (`version`) VALUES ('20140205124651')
+  [1m[36m (40.5ms)[0m  [1mCOMMIT[0m
+Migrating to AddColumnsToUsers (20140205134730)
+  [1m[35m (217.3ms)[0m  ALTER TABLE `users` ADD `institution` varchar(255)
+  [1m[36m (209.4ms)[0m  [1mALTER TABLE `users` ADD `semester` int(11)[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO `schema_migrations` (`version`) VALUES ('20140205134730')[0m
+  [1m[35m (32.0ms)[0m  COMMIT
+Migrating to AddColumnImageToCourses (20140212124354)
+  [1m[36m (175.5ms)[0m  [1mALTER TABLE `courses` ADD `image` varchar(255)[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO `schema_migrations` (`version`) VALUES ('20140212124354')[0m
+  [1m[35m (32.1ms)[0m  COMMIT
+Migrating to AddColumnToUsers (20140424130743)
+  [1m[36m (193.4ms)[0m  [1mALTER TABLE `users` ADD `bio` varchar(255)[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO `schema_migrations` (`version`) VALUES ('20140424130743')[0m
+  [1m[35m (32.2ms)[0m  COMMIT
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (34.8ms)[0m  [1mINSERT INTO `roles` (`created_at`, `name`, `updated_at`) VALUES ('2014-04-24 16:37:32', 'admin', '2014-04-24 16:37:32')[0m
+  [1m[35m (78.2ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mUser Exists (1.7ms)[0m  SELECT 1 AS one FROM `users` WHERE `users`.`email` = BINARY 'admin@mail.com' LIMIT 1
+  [1m[36mUser Exists (0.6ms)[0m  [1mSELECT 1 AS one FROM `users` WHERE `users`.`login` = BINARY 'administrador' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `users` (`created_at`, `email`, `encrypted_password`, `login`, `name`, `updated_at`) VALUES ('2014-04-24 16:37:33', 'admin@mail.com', '$2a$10$YEcxINaKIv0UJDceHQbFDOaOCzaD6Sgaxc7rld8fh076V1PBHRNVe', 'administrador', 'administrador', '2014-04-24 16:37:33')
+  [1m[36m (55.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36m (0.2ms)[0m  [1mINSERT INTO `roles_users` (`user_id`, `role_id`) VALUES (1, 1)[0m
+  [1m[35m (32.1ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mUser Exists (0.8ms)[0m  SELECT 1 AS one FROM `users` WHERE (`users`.`login` = BINARY 'administrador' AND `users`.`id` != 1) LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO `roles` (`created_at`, `name`, `updated_at`) VALUES ('2014-04-24 16:37:33', 'membro', '2014-04-24 16:37:33')[0m
+  [1m[35m (28.4ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `roles` (`created_at`, `name`, `updated_at`) VALUES ('2014-04-24 16:37:33', 'estudante', '2014-04-24 16:37:33')
+  [1m[36m (32.2ms)[0m  [1mCOMMIT[0m
+
+
+Started GET "/" for 127.0.0.1 at 2014-04-24 13:37:40 -0300
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+Processing by WelcomeController#index as HTML
+  [1m[35mProject Load (0.3ms)[0m  SELECT `projects`.* FROM `projects` ORDER BY `projects`.`id` ASC LIMIT 3
+  Rendered welcome/index.html.erb within layouts/application2 (50.1ms)
+  Rendered layouts/_navbar.html.erb (131.6ms)
+  Rendered layouts/_messages.html.erb (0.6ms)
+Completed 200 OK in 1165ms (Views: 949.2ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/assets/jquery.Jcrop.min.css?body=1" for 127.0.0.1 at 2014-04-24 13:37:42 -0300
+
+
+Started GET "/assets/twitter/bootstrap.css?body=1" for 127.0.0.1 at 2014-04-24 13:37:42 -0300
+
+
+Started GET "/assets/font-awesome.css?body=1" for 127.0.0.1 at 2014-04-24 13:37:42 -0300
+
+
+Started GET "/assets/summernote.css?body=1" for 127.0.0.1 at 2014-04-24 13:37:42 -0300
+
+
+Started GET "/assets/bootstrap-datepicker.css?body=1" for 127.0.0.1 at 2014-04-24 13:37:42 -0300
+
+
+Started GET "/assets/abouts.css?body=1" for 127.0.0.1 at 2014-04-24 13:37:42 -0300
+
+
+Started GET "/assets/members.css?body=1" for 127.0.0.1 at 2014-04-24 13:37:42 -0300
+
+
+Started GET "/assets/partners.css?body=1" for 127.0.0.1 at 2014-04-24 13:37:42 -0300
+
+
+Started GET "/assets/projects.css?body=1" for 127.0.0.1 at 2014-04-24 13:37:42 -0300
+
+
+Started GET "/assets/students.css?body=1" for 127.0.0.1 at 2014-04-24 13:37:42 -0300
+
+
+Started GET "/assets/welcome.css?body=1" for 127.0.0.1 at 2014-04-24 13:37:42 -0300
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-04-24 13:37:42 -0300
+
+
+Started GET "/assets/jquery.min.js?body=1" for 127.0.0.1 at 2014-04-24 13:37:42 -0300
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-04-24 13:37:42 -0300
+
+
+Started GET "/assets/jquery.Jcrop.min.js?body=1" for 127.0.0.1 at 2014-04-24 13:37:42 -0300
+
+
+Started GET "/assets/bootstrap.min.js?body=1" for 127.0.0.1 at 2014-04-24 13:37:42 -0300
+
+
+Started GET "/assets/summernote.js?body=1" for 127.0.0.1 at 2014-04-24 13:37:42 -0300
+
+
+Started GET "/assets/bootstrap-datepicker/core.js?body=1" for 127.0.0.1 at 2014-04-24 13:37:42 -0300
+
+
+Started GET "/assets/bootstrap-datepicker/locales/bootstrap-datepicker.ar.js?body=1" for 127.0.0.1 at 2014-04-24 13:37:42 -0300
+
+
+Started GET "/assets/bootstrap-datepicker/locales/bootstrap-datepicker.az.js?body=1" for 127.0.0.1 at 2014-04-24 13:37:42 -0300
+
+
+Started GET "/assets/bootstrap-datepicker/locales/bootstrap-datepicker.bg.js?body=1" for 127.0.0.1 at 2014-04-24 13:37:42 -0300
+
+
+Started GET "/assets/bootstrap-datepicker/locales/bootstrap-datepicker.ca.js?body=1" for 127.0.0.1 at 2014-04-24 13:37:42 -0300
+
+
+Started GET "/assets/bootstrap-datepicker/locales/bootstrap-datepicker.cs.js?body=1" for 127.0.0.1 at 2014-04-24 13:37:42 -0300
+
+
+Started GET "/assets/bootstrap-datepicker/locales/bootstrap-datepicker.cy.js?body=1" for 127.0.0.1 at 2014-04-24 13:37:42 -0300
+
+
+Started GET "/assets/bootstrap-datepicker/locales/bootstrap-datepicker.da.js?body=1" for 127.0.0.1 at 2014-04-24 13:37:42 -0300
+
+
+Started GET "/assets/bootstrap-datepicker/locales/bootstrap-datepicker.de.js?body=1" for 127.0.0.1 at 2014-04-24 13:37:42 -0300
+
+
+Started GET "/assets/bootstrap-datepicker/locales/bootstrap-datepicker.el.js?body=1" for 127.0.0.1 at 2014-04-24 13:37:42 -0300
+
+
+Started GET "/assets/bootstrap-datepicker/locales/bootstrap-datepicker.es.js?body=1" for 127.0.0.1 at 2014-04-24 13:37:42 -0300
+
+
+Started GET "/assets/bootstrap-datepicker/locales/bootstrap-datepicker.et.js?body=1" for 127.0.0.1 at 2014-04-24 13:37:42 -0300
+
+
+Started GET "/assets/bootstrap-datepicker/locales/bootstrap-datepicker.fa.js?body=1" for 127.0.0.1 at 2014-04-24 13:37:42 -0300
+
+
+Started GET "/assets/bootstrap-datepicker/locales/bootstrap-datepicker.fi.js?body=1" for 127.0.0.1 at 2014-04-24 13:37:42 -0300
+
+
+Started GET "/assets/bootstrap-datepicker/locales/bootstrap-datepicker.fr.js?body=1" for 127.0.0.1 at 2014-04-24 13:37:42 -0300
+
+
+Started GET "/assets/bootstrap-datepicker/locales/bootstrap-datepicker.gl.js?body=1" for 127.0.0.1 at 2014-04-24 13:37:42 -0300
+
+
+Started GET "/assets/bootstrap-datepicker/locales/bootstrap-datepicker.he.js?body=1" for 127.0.0.1 at 2014-04-24 13:37:42 -0300
+
+
+Started GET "/assets/bootstrap-datepicker/locales/bootstrap-datepicker.hu.js?body=1" for 127.0.0.1 at 2014-04-24 13:37:42 -0300
+
+
+Started GET "/assets/bootstrap-datepicker/locales/bootstrap-datepicker.it.js?body=1" for 127.0.0.1 at 2014-04-24 13:37:42 -0300
+
+
+Started GET "/assets/bootstrap-datepicker/locales/bootstrap-datepicker.hr.js?body=1" for 127.0.0.1 at 2014-04-24 13:37:42 -0300
+
+
+Started GET "/assets/bootstrap-datepicker/locales/bootstrap-datepicker.id.js?body=1" for 127.0.0.1 at 2014-04-24 13:37:42 -0300
+
+
+Started GET "/assets/bootstrap-datepicker/locales/bootstrap-datepicker.ja.js?body=1" for 127.0.0.1 at 2014-04-24 13:37:42 -0300
+
+
+Started GET "/assets/bootstrap-datepicker/locales/bootstrap-datepicker.is.js?body=1" for 127.0.0.1 at 2014-04-24 13:37:42 -0300
+
+
+Started GET "/assets/bootstrap-datepicker/locales/bootstrap-datepicker.ka.js?body=1" for 127.0.0.1 at 2014-04-24 13:37:42 -0300
+
+
+Started GET "/assets/bootstrap-datepicker/locales/bootstrap-datepicker.kr.js?body=1" for 127.0.0.1 at 2014-04-24 13:37:42 -0300
+
+
+Started GET "/assets/bootstrap-datepicker/locales/bootstrap-datepicker.lt.js?body=1" for 127.0.0.1 at 2014-04-24 13:37:42 -0300
+
+
+Started GET "/assets/bootstrap-datepicker/locales/bootstrap-datepicker.kk.js?body=1" for 127.0.0.1 at 2014-04-24 13:37:42 -0300
+
+
+Started GET "/assets/bootstrap-datepicker/locales/bootstrap-datepicker.lv.js?body=1" for 127.0.0.1 at 2014-04-24 13:37:42 -0300
+
+
+Started GET "/assets/bootstrap-datepicker/locales/bootstrap-datepicker.mk.js?body=1" for 127.0.0.1 at 2014-04-24 13:37:42 -0300
+
+
+Started GET "/assets/bootstrap-datepicker/locales/bootstrap-datepicker.ms.js?body=1" for 127.0.0.1 at 2014-04-24 13:37:42 -0300
+
+
+Started GET "/assets/bootstrap-datepicker/locales/bootstrap-datepicker.nb.js?body=1" for 127.0.0.1 at 2014-04-24 13:37:42 -0300
+
+
+Started GET "/assets/bootstrap-datepicker/locales/bootstrap-datepicker.nl-BE.js?body=1" for 127.0.0.1 at 2014-04-24 13:37:42 -0300
+
+
+Started GET "/assets/bootstrap-datepicker/locales/bootstrap-datepicker.nl.js?body=1" for 127.0.0.1 at 2014-04-24 13:37:42 -0300
+
+
+Started GET "/assets/bootstrap-datepicker/locales/bootstrap-datepicker.no.js?body=1" for 127.0.0.1 at 2014-04-24 13:37:42 -0300
+
+
+Started GET "/assets/bootstrap-datepicker/locales/bootstrap-datepicker.pl.js?body=1" for 127.0.0.1 at 2014-04-24 13:37:43 -0300
+
+
+Started GET "/assets/bootstrap-datepicker/locales/bootstrap-datepicker.pt-BR.js?body=1" for 127.0.0.1 at 2014-04-24 13:37:43 -0300
+
+
+Started GET "/assets/bootstrap-datepicker/locales/bootstrap-datepicker.pt.js?body=1" for 127.0.0.1 at 2014-04-24 13:37:43 -0300
+
+
+Started GET "/assets/bootstrap-datepicker/locales/bootstrap-datepicker.ro.js?body=1" for 127.0.0.1 at 2014-04-24 13:37:43 -0300
+
+
+Started GET "/assets/bootstrap-datepicker/locales/bootstrap-datepicker.rs-latin.js?body=1" for 127.0.0.1 at 2014-04-24 13:37:43 -0300
+
+
+Started GET "/assets/bootstrap-datepicker/locales/bootstrap-datepicker.rs.js?body=1" for 127.0.0.1 at 2014-04-24 13:37:43 -0300
+
+
+Started GET "/assets/bootstrap-datepicker/locales/bootstrap-datepicker.ru.js?body=1" for 127.0.0.1 at 2014-04-24 13:37:43 -0300
+
+
+Started GET "/assets/bootstrap-datepicker/locales/bootstrap-datepicker.sk.js?body=1" for 127.0.0.1 at 2014-04-24 13:37:43 -0300
+
+
+Started GET "/assets/bootstrap-datepicker/locales/bootstrap-datepicker.sl.js?body=1" for 127.0.0.1 at 2014-04-24 13:37:43 -0300
+
+
+Started GET "/assets/bootstrap-datepicker/locales/bootstrap-datepicker.sq.js?body=1" for 127.0.0.1 at 2014-04-24 13:37:43 -0300
+
+
+Started GET "/assets/bootstrap-datepicker/locales/bootstrap-datepicker.sv.js?body=1" for 127.0.0.1 at 2014-04-24 13:37:43 -0300
+
+
+Started GET "/assets/bootstrap-datepicker/locales/bootstrap-datepicker.sw.js?body=1" for 127.0.0.1 at 2014-04-24 13:37:43 -0300
+
+
+Started GET "/assets/bootstrap-datepicker/locales/bootstrap-datepicker.th.js?body=1" for 127.0.0.1 at 2014-04-24 13:37:43 -0300
+
+
+Started GET "/assets/bootstrap-datepicker/locales/bootstrap-datepicker.tr.js?body=1" for 127.0.0.1 at 2014-04-24 13:37:43 -0300
+
+
+Started GET "/assets/bootstrap-datepicker/locales/bootstrap-datepicker.ua.js?body=1" for 127.0.0.1 at 2014-04-24 13:37:43 -0300
+
+
+Started GET "/assets/bootstrap-datepicker/locales/bootstrap-datepicker.uk.js?body=1" for 127.0.0.1 at 2014-04-24 13:37:43 -0300
+
+
+Started GET "/assets/bootstrap-datepicker/locales/bootstrap-datepicker.vi.js?body=1" for 127.0.0.1 at 2014-04-24 13:37:43 -0300
+
+
+Started GET "/assets/bootstrap-datepicker/locales/bootstrap-datepicker.zh-CN.js?body=1" for 127.0.0.1 at 2014-04-24 13:37:43 -0300
+
+
+Started GET "/assets/bootstrap-datepicker/locales/bootstrap-datepicker.zh-TW.js?body=1" for 127.0.0.1 at 2014-04-24 13:37:43 -0300
+
+
+Started GET "/assets/bootstrap-datepicker/index.js?body=1" for 127.0.0.1 at 2014-04-24 13:37:43 -0300
+
+
+Started GET "/assets/jquery.maskedinput.min.js?body=1" for 127.0.0.1 at 2014-04-24 13:37:43 -0300
+
+
+Started GET "/assets/courses.js?body=1" for 127.0.0.1 at 2014-04-24 13:37:43 -0300
+
+
+Started GET "/assets/partners.js?body=1" for 127.0.0.1 at 2014-04-24 13:37:43 -0300
+
+
+Started GET "/assets/abouts.js?body=1" for 127.0.0.1 at 2014-04-24 13:37:43 -0300
+
+
+Started GET "/assets/members.js?body=1" for 127.0.0.1 at 2014-04-24 13:37:43 -0300
+
+
+Started GET "/assets/projects.js?body=1" for 127.0.0.1 at 2014-04-24 13:37:43 -0300
+
+
+Started GET "/assets/students.js?body=1" for 127.0.0.1 at 2014-04-24 13:37:43 -0300
+
+
+Started GET "/assets/welcome.js?body=1" for 127.0.0.1 at 2014-04-24 13:37:43 -0300
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-04-24 13:37:43 -0300
+
+
+Started GET "/assets/Fabsoft-logo-mini.png" for 127.0.0.1 at 2014-04-24 13:37:43 -0300
+
+
+Started GET "/assets/c1.jpg" for 127.0.0.1 at 2014-04-24 13:37:43 -0300
+
+
+Started GET "/assets/c2.jpg" for 127.0.0.1 at 2014-04-24 13:37:43 -0300
+
+
+Started GET "/assets/c3.jpg" for 127.0.0.1 at 2014-04-24 13:37:43 -0300
+
+
+Started GET "/assets/c4.jpg" for 127.0.0.1 at 2014-04-24 13:37:43 -0300
+
+
+Started GET "/assets/c5.jpg" for 127.0.0.1 at 2014-04-24 13:37:43 -0300
+
+
+Started GET "/assets/twitter-bird.png" for 127.0.0.1 at 2014-04-24 13:37:43 -0300
+
+
+Started GET "/assets/facebook.png" for 127.0.0.1 at 2014-04-24 13:37:43 -0300
+
+
+Started GET "/assets/twitter/glyphicons-halflings-regular.woff" for 127.0.0.1 at 2014-04-24 13:37:43 -0300
+
+
+Started GET "/assets/twitter-bird" for 127.0.0.1 at 2014-04-24 13:37:43 -0300
+
+ActionController::RoutingError (No route matches [GET] "/assets/twitter-bird"):
+  actionpack (4.0.2) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.0.2) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.0.2) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.0.2) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.0.2) lib/active_support/tagged_logging.rb:67:in `block in tagged'
+  activesupport (4.0.2) lib/active_support/tagged_logging.rb:25:in `tagged'
+  activesupport (4.0.2) lib/active_support/tagged_logging.rb:67:in `tagged'
+  railties (4.0.2) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.0.2) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.0.2) lib/active_support/cache/strategy/local_cache.rb:83:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  actionpack (4.0.2) lib/action_dispatch/middleware/static.rb:64:in `call'
+  rack (1.5.2) lib/rack/sendfile.rb:112:in `call'
+  railties (4.0.2) lib/rails/engine.rb:511:in `call'
+  railties (4.0.2) lib/rails/application.rb:97:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  rack (1.5.2) lib/rack/content_length.rb:14:in `call'
+  rack (1.5.2) lib/rack/handler/webrick.rb:60:in `service'
+  /home/daniel/.rvm/rubies/ruby-2.1.1/lib/ruby/2.1.0/webrick/httpserver.rb:138:in `service'
+  /home/daniel/.rvm/rubies/ruby-2.1.1/lib/ruby/2.1.0/webrick/httpserver.rb:94:in `run'
+  /home/daniel/.rvm/rubies/ruby-2.1.1/lib/ruby/2.1.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered /home/daniel/.rvm/gems/ruby-2.1.1/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/_trace.erb (3.8ms)
+  Rendered /home/daniel/.rvm/gems/ruby-2.1.1/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/routes/_route.html.erb (7.4ms)
+  Rendered /home/daniel/.rvm/gems/ruby-2.1.1/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/routes/_table.html.erb (2.7ms)
+  Rendered /home/daniel/.rvm/gems/ruby-2.1.1/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (67.9ms)
