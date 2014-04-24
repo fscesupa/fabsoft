@@ -1,6 +1,10 @@
 class WelcomeController < ApplicationController
   def index
     @projects = projects.first(3)
+
+    respond_to do |format|
+      format.html { render "welcome/index", layout: 'layouts/application2' }
+    end
   end
 
   def about
@@ -16,7 +20,6 @@ class WelcomeController < ApplicationController
   end
 
   def members
-    @control = true
   	@members = Member.all
   end
 

@@ -1,11 +1,9 @@
 class Member < User
 
 	  # Validações
-    validates_presence_of :rg, :cpf, :entry_date, :address
+    validates_presence_of :rg, :cpf, :entry_date
 
     validates_length_of :cpf, minimum: 14, maximum: 14
-    validates_length_of :address, minimum: 5
-    
     validates_uniqueness_of :rg, :cpf
 
     ## Foto
