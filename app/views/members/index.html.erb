@@ -1,20 +1,20 @@
 <div class="page-header">
-  <h1>Listing members</h1>
+  <h1>Listar Membros</h1>
 </div>
 
 <div class="panel panel-default">
   <div class="panel-heading">
-    <h3 class="panel-title">Members</h3>
+    <h3 class="panel-title">Membros</h3>
   </div>
   <div class="panel-body">
     <table class="table table-hover">
       <thead>
         <tr>
-          <th>Name</th>
+          <th>Nome</th>
           <th>Email</th>
           <th>CPF</th>
           <th>RG</th>
-          <th>Address</th>
+          <th>Endereço</th>
           <th></th>
           <th></th>
           <th></th>
@@ -29,9 +29,9 @@
             <td><%= member.cpf %></td>
             <td><%= member.rg %></td>
             <td><%= member.address %></td>
-            <td><%= link_to 'Show', member %></td>
-            <td><%= link_to 'Edit', edit_member_path(member) %></td>
-            <td><%= link_to 'Destroy', member, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+            <td><%= link_to 'Detalhes', member %></td>
+            <td><%= link_to 'Editar', edit_member_path(member) %></td>
+            <td><%= link_to 'Deletar', member, method: :delete, data: { confirm: 'Tem certeza?' } %></td>
           </tr>
         <% end %>
       </tbody>
@@ -40,4 +40,4 @@
 </div>
 <br>
 
-<%= link_to 'New Member', new_member_path %>
+<%= link_to 'Incluir Membro', new_member_path %>

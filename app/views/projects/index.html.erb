@@ -1,17 +1,17 @@
 <div class="page-header">
-  <h1>Listing Projects</h1>
+  <h1>Listar Projetos</h1>
 </div>
 
 <div class="panel panel-default">
   <div class="panel-heading">
-    <h3 class="panel-title">Projects</h3>
+    <h3 class="panel-title">Projetos</h3>
   </div>
   <div class="panel-body">
     <table class="table table-hover">
       <thead>
         <tr>
-          <th>Image</th>
-          <th>Name</th>
+          <th>Imagem</th>
+          <th>Nome</th>
           <th>url</th>
           <th></th>
           <th></th>
@@ -25,9 +25,9 @@
             <td><%= image_tag project.image_url(:thumb).to_s, size: "100x30" %></td>
             <td><%= project.name %></td>
             <td><%= project.url %></td>
-            <td><%= link_to 'Show', project %></td>
-            <td><%= link_to 'Edit', edit_project_path(project) %></td>
-            <td><%= link_to 'Destroy', project, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+            <td><%= link_to 'Detalhes', project %></td>
+            <td><%= link_to 'Editar', edit_project_path(project) %></td>
+            <td><%= link_to 'Deletar', project, method: :delete, data: { confirm: 'Tem Certeza?' } %></td>
           </tr>
         <% end %>
       </tbody>
@@ -38,4 +38,4 @@
 
 <br>
 
-<%= link_to 'New Project', new_project_path %>
+<%= link_to 'Incluir Projeto', new_project_path %>

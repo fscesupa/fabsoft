@@ -8,17 +8,17 @@
         </div>
         <br/>
         <%= image_tag course.image_url(:thumb).to_s, :size => '200x200', class: "img-rounded" %><br/>
-        <strong>Workload</strong> <%= course.workload %><br/>
-        <strong>Start date</strong> <%= course.start_date %><br/>
-        <strong>End date</strong> <%= course.end_date %><br/>
-        <strong>Maximum capacity</strong> <%= course.maximum_capacity %><br/>
-        <strong>Minimum capacity</strong> <%= course.minimum_capacity %>
+        <strong>Carga Horária</strong> <%= course.workload %><br/>
+        <strong>Data de Início</strong> <%= course.start_date %><br/>
+        <strong>Data de Término</strong> <%= course.end_date %><br/>
+        <strong>Capacidade Máxima</strong> <%= course.maximum_capacity %><br/>
+        <strong>Capacidade Mínima</strong> <%= course.minimum_capacity %>
         <br/>
         <br/>
         <div class="col-md-12 text-center">
-          <%= link_to 'Show', course, class: "btn btn-info" %>
-          <%= link_to 'Edit', edit_course_path(course), class: "btn btn-primary" %>
-          <%= link_to 'Destroy', course, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger" %>
+          <%= link_to 'Detalhes', course, class: "btn btn-info" %>
+          <%= link_to 'Editar', edit_course_path(course), class: "btn btn-primary" %>
+          <%= link_to 'Deletar', course, method: :delete, data: { confirm: 'Tem Certeza?' }, class: "btn btn-danger" %>
           <%= link_to 'Ver Alunos', registered_students_courses_path(course), class: "btn btn-success" %>
         </div>
         <br/>
@@ -30,4 +30,4 @@
   </div>
 </div>
 <br/>
-<%= link_to 'New Course', new_course_path %>
+<%= link_to 'Incluir Curso', new_course_path %>

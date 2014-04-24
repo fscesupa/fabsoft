@@ -5,28 +5,28 @@ class ProjectsController < ApplicationController
   # GET /projects.json
   def index
     @projects = Project.all
-    add_breadcrumb "List Projects", projects_path
+    add_breadcrumb "Listar Projetos", projects_path
   end
 
   # GET /projects/1
   # GET /projects/1.json
   def show
-    add_breadcrumb "List Projects", projects_path
-    add_breadcrumb "Show Projects", project_path(@project)
+    add_breadcrumb "Listar Projetos", projects_path
+    add_breadcrumb "Detalhar Projeto", project_path(@project)
   end
 
   # GET /projects/new
   def new
     @project = Project.new
-    add_breadcrumb "List Projects", projects_path
-    add_breadcrumb "Create Project", new_project_path
+    add_breadcrumb "Listar Projetos", projects_path
+    add_breadcrumb "Incluir Projeto", new_project_path
   end
 
   # GET /projects/1/edit
   def edit
-    add_breadcrumb "List Projects", projects_path
-    add_breadcrumb "Show Project", project_path(@project)
-    add_breadcrumb "Edit Project", edit_project_path(@project)
+    add_breadcrumb "Listar Projetos", projects_path
+    add_breadcrumb "Detalhar Projeto", project_path(@project)
+    add_breadcrumb "Editar Projeto", edit_project_path(@project)
   end
 
   # POST /projects

@@ -5,28 +5,28 @@ class StudentsController < ApplicationController
   # GET /students.json
   def index
     @students = Student.all
-    add_breadcrumb "List Students", students_path
+    add_breadcrumb "Listar Alunos", students_path
   end
 
   # GET /students/1
   # GET /students/1.json
   def show
-    add_breadcrumb "List Students", students_path
-    add_breadcrumb "Show Students", student_path(@student)
+    add_breadcrumb "Listar Alunos", students_path
+    add_breadcrumb "Detalhar Aluno", student_path(@student)
   end
 
   # GET /students/new
   def new
     @student = Student.new
-    add_breadcrumb "List Students", students_path
-    add_breadcrumb "Create Student", new_student_path
+    add_breadcrumb "Listar Alunos", students_path
+    add_breadcrumb "Incluir Aluno", new_student_path
   end
 
   # GET /students/1/edit
   def edit
-    add_breadcrumb "List Students", students_path
-    add_breadcrumb "Show Student", student_path(@student)
-    add_breadcrumb "Edit Student", edit_student_path(@student)
+    add_breadcrumb "Listar Alunos", students_path
+    add_breadcrumb "Detalhar Aluno", student_path(@student)
+    add_breadcrumb "Editar Aluno", edit_student_path(@student)
   end
 
   # POST /students

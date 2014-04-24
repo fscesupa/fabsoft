@@ -1,16 +1,16 @@
 <div class="page-header">
-  <h1>Listing partners</h1>
+  <h1>Listar Parceiros</h1>
 </div>
 
 <div class="panel panel-default">
   <div class="panel-heading">
-    <h3 class="panel-title">Partners</h3>
+    <h3 class="panel-title">Parceiros</h3>
   </div>
   <div class="panel-body">
     <table class="table table-hover">
       <thead>
         <tr>
-          <th>Name</th>
+          <th>Nome</th>
           <th>url</th>
           <th></th>
           <th></th>
@@ -23,9 +23,9 @@
           <tr>
             <td><%= partner.name %></td>
             <td><%= partner.url %></td>
-            <td><%= link_to 'Show', partner %></td>
-            <td><%= link_to 'Edit', edit_partner_path(partner) %></td>
-            <td><%= link_to 'Destroy', partner, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+            <td><%= link_to 'Detalhes', partner %></td>
+            <td><%= link_to 'Editar', edit_partner_path(partner) %></td>
+            <td><%= link_to 'Deletar', partner, method: :delete, data: { confirm: 'Are you sure?' } %></td>
           </tr>
         <% end %>
       </tbody>
@@ -35,4 +35,4 @@
 
 <br>
 
-<%= link_to 'New Partner', new_partner_path %>
+<%= link_to 'Incluir Parceiro', new_partner_path %>

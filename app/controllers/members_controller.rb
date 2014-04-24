@@ -6,28 +6,28 @@ class MembersController < ApplicationController
   # GET /members.json
   def index
     @members = Member.all
-    add_breadcrumb "List Members", members_path
+    add_breadcrumb "Listar Membros", members_path
   end
 
   # GET /members/1
   # GET /members/1.json
   def show
-    add_breadcrumb "List Members", members_path
-    add_breadcrumb "Show Members", member_path(@member)
+    add_breadcrumb "Listar Membros", members_path
+    add_breadcrumb "Detalhar Membro", member_path(@member)
   end
 
   # GET /members/new
   def new
     @member = Member.new
-    add_breadcrumb "List Members", members_path
-    add_breadcrumb "Create Member", new_member_path
+    add_breadcrumb "Listar Membros", members_path
+    add_breadcrumb "Incluir Membro", new_member_path
   end
 
   # GET /members/1/edit
   def edit
-    add_breadcrumb "List Members", members_path
-    add_breadcrumb "Show Member", member_path(@member)
-    add_breadcrumb "Edit Member", edit_member_path(@member)
+    add_breadcrumb "Listar Membros", members_path
+    add_breadcrumb "Detalhar Membro", member_path(@member)
+    add_breadcrumb "Editar Membro", edit_member_path(@member)
   end
 
   # POST /members

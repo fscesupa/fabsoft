@@ -1,5 +1,5 @@
 <div class="page-header">
-	<h2>Show Member</h2>
+	<h2>Mostrar Aluno</h2>
 </div>
 
 
@@ -7,7 +7,7 @@
   	<div class="row">
 	    <div class="panel panel-default">
 	      	<div class="panel-heading">
-	        	<h3 class="panel-title">Member</h3>
+	        	<h3 class="panel-title">Aluno</h3>
 	  		</div>
 	      	<br>
 	      	<div class="panel-body">
@@ -27,17 +27,17 @@
 
 
 				<p>
-				  <strong>Name:</strong>
+				  <strong>Nome:</strong>
 				  <%= @student.name %>
 				</p>
 
 				<p>
-				  <strong>Institution:</strong>
+				  <strong>Instituição:</strong>
 				  <%= @student.institution %>
 				</p>
 
 				<p>
-				  <strong>Semester:</strong>
+				  <strong>Semestre:</strong>
 				  <%= @student.semester %>
 				</p>
 				
@@ -47,5 +47,5 @@
 </div>
 
 
-<%= link_to 'Edit', edit_student_path(@student) %> |
-<%= link_to 'Back', students_path %>
+<%= link_to 'Editar', edit_student_path(@student) %> |
+<%= link_to 'Voltar', students_path %>

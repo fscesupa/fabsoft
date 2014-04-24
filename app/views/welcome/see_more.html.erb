@@ -10,24 +10,24 @@
 					<%= image_tag @course.image_url(:thumb).to_s, :size => '250x350', class: "img-responsive" %>
 				</p>
 				<br/>
-				<strong>Specification:</strong>
+				<strong>Especificação:</strong>
 				<div class="pogPular" type="text">
 					<p> <%= raw(@course.specification) %></p>
 				</div>
-				<%= link_to 'Back', welcome_current_courses_path, class: "btn btn-primary" %>
+				<%= link_to 'Voltar', welcome_current_courses_path, class: "btn btn-primary" %>
 			</div>
 		</div>
 		
 		<div class="col-md-4 column well">
 			<div id="espacosParaAmbosOsLados">
-				<h3 id="margemParabaixo">Informations</h3>
-				<h4><i class="glyphicon glyphicon-time"></i><strong> Workload:</strong> <%= @course.workload %> </h4>
-				<h4><i class="glyphicon glyphicon-calendar"></i><strong> Start date:</strong> <%= @course.start_date %> </h4>
-				<h4><i class="glyphicon glyphicon-calendar"></i><strong> End date:</strong> <%= @course.end_date %> </h4>
-				<h4><i class="glyphicon glyphicon-plus"></i><strong> Maximum capacity:</strong> <%= @course.maximum_capacity %> </h4>
-				<h4 id="margemParabaixo"><i class="glyphicon glyphicon-minus"></i><strong> Minimum capacity:</strong> <%= @course.minimum_capacity %> </h4>
+				<h3 id="margemParabaixo">Informações</h3>
+				<h4><i class="glyphicon glyphicon-time"></i><strong> Carga Horária:</strong> <%= @course.workload %> </h4>
+				<h4><i class="glyphicon glyphicon-calendar"></i><strong> Data de Início:</strong> <%= @course.start_date %> </h4>
+				<h4><i class="glyphicon glyphicon-calendar"></i><strong> Data de Término:</strong> <%= @course.end_date %> </h4>
+				<h4><i class="glyphicon glyphicon-plus"></i><strong> Capacidade Máxima:</strong> <%= @course.maximum_capacity %> </h4>
+				<h4 id="margemParabaixo"><i class="glyphicon glyphicon-minus"></i><strong> Capacidade Mínima:</strong> <%= @course.minimum_capacity %> </h4>
 				<hr/>
-				<h3 id="margemParabaixo">Instructors</h3>
+				<h3 id="margemParabaixo">Instrutores</h3>
 			</div>
 			
 			<% @course.users.each do |u| %>

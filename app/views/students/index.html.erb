@@ -1,18 +1,18 @@
 <div class="page-header">
-  <h1>Listing students</h1>
+  <h1>Listar Alunos</h1>
 </div>
 
 <div class="panel panel-default">
   <div class="panel-heading">
-    <h3 class="panel-title">Students</h3>
+    <h3 class="panel-title">Alunos</h3>
   </div>
   <div class="panel-body">
     <table class="table table-hover">
       <thead>
         <tr>
-          <th>Name</th>
+          <th>Nome</th>
           <th>Email</th>
-          <th>Institution</th>
+          <th>Instituição</th>
           <th></th>
           <th></th>
           <th></th>
@@ -25,9 +25,9 @@
             <td><%= student.name %></td>
             <td><%= student.email %></td>
             <td><%= student.institution %></td>
-            <td><%= link_to 'Show', student %></td>
-            <td><%= link_to 'Edit', edit_student_path(student) %></td>
-            <td><%= link_to 'Destroy', student, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+            <td><%= link_to 'Detalhes', student %></td>
+            <td><%= link_to 'Editar', edit_student_path(student) %></td>
+            <td><%= link_to 'Deletar', student, method: :delete, data: { confirm: 'Are you sure?' } %></td>
           </tr>
         <% end %>
       </tbody>
@@ -36,4 +36,4 @@
 </div>
 <br>
 
-<%= link_to 'New Student', new_student_path %>
+<%= link_to 'Incluir Aluno', new_student_path %>

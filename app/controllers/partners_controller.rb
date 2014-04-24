@@ -5,28 +5,28 @@ class PartnersController < ApplicationController
   # GET /partners.json
   def index
     @partners = Partner.all
-    add_breadcrumb "List Partners", partners_path
+    add_breadcrumb "Listar Parceiros", partners_path
   end
 
   # GET /partners/1
   # GET /partners/1.json
   def show
-    add_breadcrumb "List Partners", partners_path
-    add_breadcrumb "Show Partners", partner_path(@partner)
+    add_breadcrumb "Listar Parceiros", partners_path
+    add_breadcrumb "Detalhar Parceiro", partner_path(@partner)
   end
 
   # GET /partners/new
   def new
     @partner = Partner.new
-    add_breadcrumb "List Partners", partners_path
-    add_breadcrumb "Create Partners", new_partner_path
+    add_breadcrumb "Listar Parceiros", partners_path
+    add_breadcrumb "Incluir Parceiro", new_partner_path
   end
 
   # GET /partners/1/edit
   def edit
-    add_breadcrumb "List Partners", partners_path
-    add_breadcrumb "Show Partner", partner_path(@partner)
-    add_breadcrumb "Edit Partner", edit_partner_path(@partner)
+    add_breadcrumb "Listar Parceiro", partners_path
+    add_breadcrumb "Detalhar Parceiro", partner_path(@partner)
+    add_breadcrumb "Editar Parceiro", edit_partner_path(@partner)
   end
 
   # POST /partners
