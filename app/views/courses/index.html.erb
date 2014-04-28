@@ -1,33 +1,48 @@
-<div class="container" >
-  <div class="row">
-    <div class="col-md-12">
-      <% @courses.each do |course| %>
-      <div class="col-md-4 text-center">
-        <div class="col-md-12">
-          <h3 class="mudaTexto text-center"><%= course.name %></h3><br/>
-        </div>
-        <br/>
-        <%= image_tag course.image_url(:thumb).to_s, :size => '200x200', class: "img-rounded" %><br/>
-        <strong>Carga Horária</strong> <%= course.workload %><br/>
-        <strong>Data de Início</strong> <%= course.start_date %><br/>
-        <strong>Data de Término</strong> <%= course.end_date %><br/>
-        <strong>Capacidade Máxima</strong> <%= course.maximum_capacity %><br/>
-        <strong>Capacidade Mínima</strong> <%= course.minimum_capacity %>
-        <br/>
-        <br/>
-        <div class="col-md-12 text-center">
-          <%= link_to 'Detalhes', course, class: "btn btn-info" %>
-          <%= link_to 'Editar', edit_course_path(course), class: "btn btn-primary" %>
-          <%= link_to 'Deletar', course, method: :delete, data: { confirm: 'Tem Certeza?' }, class: "btn btn-danger" %>
-          <%= link_to 'Ver Alunos', registered_students_courses_path(course), class: "btn btn-success" %>
-        </div>
-        <br/>
-        <br/>
-        <br/>
-      </div>    
-      <% end %>  
-    </div>    
+<div class="page-header">
+  <h1>Listar courses</h1>
+</div>
+
+<div class="panel panel-default">
+ <div class="panel-heading">
+    <h3 class="panel-title">courses</h3>
+  </div>
+  <div class="panel-body">
+    <table class="table table-hover" width="100%">
+      <thead>
+        <tr>
+          <th>name</th>
+          <th>workload</th>
+          <th>start_date</th>
+          <th>end_date</th>
+          <th></th>
+          <th></th>
+          <th></th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <%= content_tag_for(:tr, @courses) do |course| %>
+          <td><%= course.name %></td>
+          <td><%= course.workload %></td>
+          <td><%= course.start_date %></td>
+          <td><%= course.end_date %></td>
+          <td>
+            <%= link_to 'Detalhes', course %>
+          </td>
+          <td>
+            <%= link_to 'Editar', edit_course_path(course) %>
+          </td>
+          <td>
+            <%= link_to 'Deletar', course, method: :delete, data: { confirm: 'Tem certeza?'} %>
+          </td>
+        <% end %>
+      </tbody>
+    </table>
   </div>
 </div>
-<br/>
-<%= link_to 'Incluir Curso', new_course_path %>
+<br>
+
+<div class="form-actions">
+  <%= link_to 'Incluir Curso', new_course_path, class: 'btn btn-primary' %>
+</div>
+

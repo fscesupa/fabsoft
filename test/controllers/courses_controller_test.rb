@@ -18,7 +18,7 @@ class CoursesControllerTest < ActionController::TestCase
 
   test "should create course" do
     assert_difference('Course.count') do
-      post :create, course: { end_date: @course.end_date, maximun_capacity: @course.maximun_capacity, minimun_capacity: @course.minimun_capacity, name: @course.name, specification: @course.specification, strat_date: @course.strat_date, workload: @course.workload }
+      post :create, course: { description: @course.description, end_date: @course.end_date, image: @course.image, max_cap: @course.max_cap, min_cap: @course.min_cap, name: @course.name, start_date: @course.start_date, workload: @course.workload }
     end
 
     assert_redirected_to course_path(assigns(:course))
@@ -35,7 +35,7 @@ class CoursesControllerTest < ActionController::TestCase
   end
 
   test "should update course" do
-    patch :update, id: @course, course: { end_date: @course.end_date, maximun_capacity: @course.maximun_capacity, minimun_capacity: @course.minimun_capacity, name: @course.name, specification: @course.specification, strat_date: @course.strat_date, workload: @course.workload }
+    patch :update, id: @course, course: { description: @course.description, end_date: @course.end_date, image: @course.image, max_cap: @course.max_cap, min_cap: @course.min_cap, name: @course.name, start_date: @course.start_date, workload: @course.workload }
     assert_redirected_to course_path(assigns(:course))
   end
 

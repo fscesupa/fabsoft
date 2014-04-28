@@ -1,0 +1,56 @@
+<div class="page-header">
+  <h1>Listar classrooms</h1>
+</div>
+
+<div class="panel panel-default">
+ <div class="panel-heading">
+    <h3 class="panel-title">classrooms</h3>
+  </div>
+  <div class="panel-body">
+    <table class="table table-hover" width="100%">
+      <thead>
+        <tr>
+                      <th>course</th>
+                      <th>user</th>
+                      <th>paid</th>
+                      <th>payment_date</th>
+                      <th>validity_date</th>
+                    <th></th>
+          <th></th>
+          <th></th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <%= content_tag_for(:tr, @classrooms) do |classroom| %>
+
+                      <td><%= classroom.course %></td>
+                      <td><%= classroom.user %></td>
+                      <td><%= classroom.paid %></td>
+                      <td><%= classroom.payment_date %></td>
+                      <td><%= classroom.validity_date %></td>
+          
+          <td>
+            <%= link_to 'Detalhes', classroom %>
+          </td>
+          <td>
+            <%= link_to 'Editar', edit_classroom_path(classroom) %>
+          </td>
+          <td>
+            <%= link_to 'Deletar', classroom, method: :delete, data: { confirm: 'Tem certeza?'} %>
+          </td>
+
+          
+        
+        <% end %>
+        
+      </tbody>
+    </table>
+  </div>
+</div>
+<br>
+
+<div class="form-actions">
+  <%= link_to 'Incluir Classroom', new_classroom_path, class: 'btn btn-primary' %>
+</div>
+

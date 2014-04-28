@@ -1,4 +1,8 @@
 Fabsoft::Application.routes.draw do
+  resources :classrooms
+
+  resources :courses
+
   resources :courses do
     collection do
       put 'current_courses' => 'courses#register', as: :register

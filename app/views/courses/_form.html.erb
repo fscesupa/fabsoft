@@ -1,81 +1,70 @@
 <div class="container">
-  <div class="row">
-    <div class="panel panel-default">
-      <div class="panel-heading">
-        <h3 class="panel-title">Cursos</h3>
-      </div>
-      <br>
-        <div class="panel-body">
-          <%= simple_form_for @course, :html => { :class => 'form-horizontal' }  do |f| %>
-          <%= f.error_notification %>
+	<div class="row">
+		<div class="panel panel-default">
+			<div class="panel-heading">
+				<h3 class="panel-title">Curso</h3>
+			</div>
+			<br>
+			<div class="panel-body">
+				<%= simple_form_for @course, :html => { :class => 'form-horizontal' } do |f| %>
+				  	<%= f.error_notification %>
+				  	<div class="form-inputs">
+					  		<div class="form-group">
+				  				<div class="col-xs-3">
+					    			<%= f.input :name, label: "Nome" %>
+					    		</div>
+			  				</div>
+					  		<div class="form-group">
+				  				<div class="col-xs-2">
+					    			<%= f.input :workload, label: "Carga Horária" %>
+					    		</div>
+			  				</div>
+					  		
+					  		<div class="form-group">
+				  				<div class="col-xs-2">
+					    			<%= f.input :start_date, label: "Data de Início", :as => :string, :input_html => { data: {behaviour: "datepicker"}} %>
+					    		</div>
+			  				</div>
+					  		<div class="form-group">
+				  				<div class="col-xs-2">
+					    			<%= f.input :end_date, label: "Data de Término", :as => :string, :input_html => { data: {behaviour: "datepicker"}} %>
+					    		</div>
+			  				</div>
+					  		<div class="form-group">
+				  				<div class="col-xs-2">
+					    			<%= f.input :max_cap, label: "Capacidade Máxima" %>
+					    		</div>
+			  				</div>
+					  		<div class="form-group">
+				  				<div class="col-xs-2">
+					    			<%= f.input :min_cap, label: "Capacidade Mínima" %>
+					    		</div>
+			  				</div>
+			  				<div class="form-group">
+				  				<div class="col-xs-12">
+					    			<%= f.input :description, label: "Descrição" %>
+					    		</div>
+			  				</div>
+					  		<div class="form-group">
+				  				<div class="col-xs-2">
+					    			<%= f.input :image %>
+					    		</div>
+			  				</div>
+				  	</div>
+		  	</div>
+		  	<div class="form-group well" style="margin-bottom: 0px; border: 0px; border-radius: 0px;">
+				<%= f.submit 'Incluir', class: "btn btn-primary" %>
+				<%= link_to "Voltar", courses_path, class: "btn btn-default" %>
+			</div>
+			<% end %>
+		</div>
+	</div>
+</div>
 
-          <div class="form-inputs">
-
-            <div class="form-group">
-              <div class="col-xs-4">
-                <%= f.input :name, label: "Nome" %>
-              </div>
-            </div>
-
-            <div class="form-group">
-              <div class="col-xs-2">
-                <%= f.input :workload, label: "Carga Horária" %>
-              </div>
-            </div>
-            <div class="form-group">
-              <div class="col-xs-12">
-                <%= f.input :specification, label: "Especificação" %>
-              </div>
-            </div>
-            <div class="form-group">
-              <div class="col-xs-2">
-                <%= f.input :start_date, label: "Data de Início", :as => :string, :input_html => { data: {behaviour: "datepicker"}} %>
-              </div>
-            </div>
-            <div class="form-group">
-              <div class="col-xs-2">
-                <%= f.input :end_date, label: "Data de Término", :as => :string, :input_html => { data: {behaviour: "datepicker"}} %>
-              </div>
-            </div>
-            <div class="form-group">
-              <div class="col-xs-1">
-                <%= f.input :maximum_capacity, label: "Capacidade Máxima" %>
-              </div>
-            </div>
-            <div class="form-group">
-              <div class="col-xs-1">
-                <%= f.input :minimum_capacity, label: "Capacidade Mínima" %>
-              </div>
-            </div>
-
-            <div class="form-group">
-              <div class="col-xs-2">
-                <%= f.input :image, label: "Imagem" %>
-              </div>
-            </div>
-
-            <div class="form-group">
-              <div class="col-xs-3">
-                <%= f.association :users, collection: @members, as: :check_boxes, label: "Instrutores" %>
-              </div>
-            </div>            
-            
-          </div>
-
-        </div>
-        <div class="form-group well" style="margin-bottom: 0px; border: 0px; border-radius: 0px;">
-          <%= f.submit 'Incluir', class: "btn btn-primary" %>
-          <%= link_to 'Voltar', courses_path, class: "btn btn-default" %>
-        </div>
-        <% end %>
-      </div>
-    </div>
-  </div>
-
-  <script type="text/javascript">
-    $('[data-behaviour~=datepicker]').datepicker({
-      "format": "yyyy-mm-dd",
-      "weekStart": 1,
-      "autoclose": true
-    });
-  </script>
+<script type="text/javascript">
+	$('[data-behaviour~=datepicker]').datepicker({
+	"format": "yyyy-mm-dd",
+	"weekStart": 1,
+	"autoclose": true
+	});
+</script>

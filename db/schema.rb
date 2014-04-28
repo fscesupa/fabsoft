@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140424130743) do
+ActiveRecord::Schema.define(version: 20140428190741) do
 
   create_table "abouts", force: true do |t|
     t.string   "title"
@@ -20,22 +20,30 @@ ActiveRecord::Schema.define(version: 20140424130743) do
     t.datetime "updated_at"
   end
 
-  create_table "courses", force: true do |t|
-    t.string   "name"
-    t.string   "workload"
-    t.text     "specification"
-    t.date     "start_date"
-    t.date     "end_date"
-    t.integer  "maximum_capacity"
-    t.integer  "minimum_capacity"
+  create_table "classrooms", id: false, force: true do |t|
+    t.integer  "course_id"
+    t.integer  "user_id"
+    t.string   "paid",          limit: 1
+    t.date     "payment_date"
+    t.date     "validity_date"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "image"
   end
 
-  create_table "courses_users", id: false, force: true do |t|
-    t.integer "course_id"
-    t.integer "user_id"
+  add_index "classrooms", ["course_id"], name: "index_classrooms_on_course_id", using: :btree
+  add_index "classrooms", ["user_id"], name: "index_classrooms_on_user_id", using: :btree
+
+  create_table "courses", force: true do |t|
+    t.string   "name"
+    t.integer  "workload"
+    t.text     "description"
+    t.date     "start_date"
+    t.date     "end_date"
+    t.integer  "max_cap"
+    t.integer  "min_cap"
+    t.string   "image"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "partners", force: true do |t|
@@ -71,12 +79,12 @@ ActiveRecord::Schema.define(version: 20140424130743) do
     t.string   "login",              default: "", null: false
     t.string   "email",              default: "", null: false
     t.string   "encrypted_password", default: "", null: false
+    t.string   "name"
     t.integer  "sign_in_count",      default: 0,  null: false
     t.datetime "current_sign_in_at"
     t.datetime "last_sign_in_at"
     t.string   "current_sign_in_ip"
     t.string   "last_sign_in_ip"
-    t.string   "name"
     t.string   "type"
     t.string   "phone"
     t.string   "cellphone"
@@ -92,8 +100,7 @@ ActiveRecord::Schema.define(version: 20140424130743) do
     t.string   "gplus"
     t.string   "linkedin"
     t.string   "image"
-    t.string   "institution"
-    t.integer  "semester"
+    t.text     "knwoledge_area"
     t.string   "bio"
   end
 

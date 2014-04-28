@@ -1,6 +1,5 @@
 class AddColumnsToUsers < ActiveRecord::Migration
   def change
-    add_column :users, :institution, :string
-    add_column :users, :semester, :integer
+    add_column :users, :knwoledge_area, :text
   end
 end

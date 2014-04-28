@@ -1,0 +1,40 @@
+<div class="page-header">
+	<h2>Mostrar Classroom</h2>
+</div>
+
+
+<div class="container">
+	<div class="row">
+		<div class="panel panel-default">
+			<div class="panel-heading">
+				<h3 class="panel-title">Classroom</h3>
+			</div>
+			<br>
+			<div class="panel-body">
+				<p>
+					<strong>Course</strong>
+	    			@<%=classroom.course%>
+				</p>
+				<p>
+					<strong>User</strong>
+	    			@<%=classroom.user%>
+				</p>
+				<p>
+					<strong>Paid</strong>
+	    			@<%=classroom.paid%>
+				</p>
+				<p>
+					<strong>Payment_date</strong>
+	    			@<%=classroom.payment_date%>
+				</p>
+				<p>
+					<strong>Validity_date</strong>
+	    			@<%=classroom.validity_date%>
+				</p>
+			</div>
+		</div>
+	</div>
+</div>
+
+<%= link_to 'Editar', edit_classroom_path(@classroom) |
+<%= link_to 'Voltar', classrooms_path %>

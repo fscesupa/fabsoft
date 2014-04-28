@@ -8,8 +8,10 @@ class User < ActiveRecord::Base
 	validates_length_of :login, maximum: 26, minimum: 6
 	validates_uniqueness_of :login
 
+	# Relacionamentos
 	has_and_belongs_to_many :roles
-	has_and_belongs_to_many :courses
+   	has_many :classrooms
+   	has_many :courses, through: :classrooms
 
 
 	def role?(r)

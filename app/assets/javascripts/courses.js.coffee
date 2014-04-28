@@ -2,7 +2,7 @@ $ ->
 
   # to set summernote object
   # You should change '#post_content' to your textarea input id
-  summer_note = $('#course_specification')
+  summer_note = $('#course_description')
 
   summer_note.summernote
     # to set options
@@ -28,3 +28,26 @@ $ ->
     # alert $('#product_description').code()
     summer_note.val summer_note.code()
     true
+
+jQuery ->
+  new AvatarCropper()
+
+class AvatarCropper
+  constructor: ->
+    $('#cropbox').Jcrop
+      aspectRatio: 1
+      setSelect: [0, 0, 600, 600]
+      onSelect: @update
+      onChange: @update
+  update: (coords) =>
+    $('#course_crop_x').val(coords.x)
+    $('#course_crop_y').val(coords.y)
+    $('#course_crop_w').val(coords.w)
+    $('#course_crop_h').val(coords.h)
+    @updatePreview(coords)
+  updatePreview: (coords) =>
+    $('#preview').css
+      width: Math.round(100/coords.w * $('#cropbox').width()) + 'px'
+      height: Math.round(100/coords.h * $('#cropbox').height()) + 'px'
+      marginLeft: '-' + Math.round(100/coords.w * coords.x) + 'px'
+      marginTop: '-' + Math.round(100/coords.h * coords.y) + 'px'

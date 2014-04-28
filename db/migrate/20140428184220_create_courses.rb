@@ -2,12 +2,14 @@ class CreateCourses < ActiveRecord::Migration
   def change
     create_table :courses do |t|
       t.string :name
-      t.string :workload
-      t.text :specification
+      t.integer :workload
+      t.text :description
       t.date :start_date
       t.date :end_date
-      t.integer :maximum_capacity
-      t.integer :minimum_capacity
+      t.integer :max_cap
+      t.integer :min_cap
+      t.string :image
+
       t.timestamps
     end
   end

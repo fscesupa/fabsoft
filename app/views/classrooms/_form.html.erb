@@ -1,0 +1,54 @@
+<div class="container">
+	<div class="row">
+		<div class="panel panel-default">
+			<div class="panel-heading">
+				<h3 class="panel-title">Classroom</h3>
+			</div>
+			<br>
+			<div class="panel-body">
+				<%= simple_form_for @classroom, :html => { :class => 'form-horizontal' } do |f| %>
+				  	<%= f.error_notification %>
+				  	<div class="form-inputs">
+					  		<div class="form-group">
+				  				<div class="col-xs-2">
+					    			<%= f.association :course, label: "Curso", prompt: 'Selectione o Curso', label_method: :name, collection: Course.all %>
+					    		</div>
+			  				</div>
+					  		<div class="form-group">
+				  				<div class="col-xs-2">
+					    			<%= f.association :user, prompt: 'Selectione o aluno', label_method: :name, collection: User.all %>
+					    		</div>
+			  				</div>
+					  		<div class="form-group">
+				  				<div class="col-xs-1">
+					    			<%= f.input :paid, label: "Pago"%>
+					    		</div>
+			  				</div>
+					  		<div class="form-group">
+				  				<div class="col-xs-2">
+					    			<%= f.input :payment_date, label: "Data de Pagamento", :as => :string, :input_html => { data: {behaviour: "datepicker"}} %>
+					    		</div>
+			  				</div>
+					  		<div class="form-group">
+				  				<div class="col-xs-2">
+					    			<%= f.input :validity_date, label: "Data de Vencimento", :as => :string, :input_html => { data: {behaviour: "datepicker"}} %>
+					    		</div>
+			  				</div>
+				  	</div>
+		  	</div>
+		  	<div class="form-group well" style="margin-bottom: 0px; border: 0px; border-radius: 0px;">
+				<%= f.submit 'Incluir', class: "btn btn-primary" %>
+				<%= link_to "Voltar", classrooms_path, class: "btn btn-default" %>
+			</div>
+			<% end %>
+		</div>
+	</div>
+</div>
+
+<script type="text/javascript">
+	$('[data-behaviour~=datepicker]').datepicker({
+	"format": "yyyy-mm-dd",
+	"weekStart": 1,
+	"autoclose": true
+	});
+</script>

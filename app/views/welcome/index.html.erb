@@ -56,24 +56,3 @@ body {
   </a>
 </div> 
 <br>
-
-
-<div class="container">
-  <div class="row">
-    <!-- radio: 2,325439 -->
-    <div class="page-header">
-    	<h1>Projetos</h1>
-    </div>
-    <div class="container marketing">
-     <!-- Three columns of text below the carousel -->
-          <div class="row">
-          	<% @projects.each do |project| %>
-    	        <div class="col-md-4 text-center">
-        			<h2 style="margin-center: 120px;"><span class="text-muted"><%= project.name %></span></h2>
-    	          	<p><%= raw(project.description) %></p>
-    	        </div><!-- /.col-lg-4 -->
-            <% end %>
-          </div><!-- /.row -->
-    </div>
-  </div>
-</div>
